@@ -25,14 +25,6 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Ícone de Menu */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #000;
-}
-
 /* Container das logos */
 .logo-container {
     display: flex;
