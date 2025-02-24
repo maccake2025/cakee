@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./imagens/MAC CAKE LOGO.png">   
+    <link rel="stylesheet" href="carrinho.css">
+    <title>Mac Cake - Carrinho</title>
+</head>
+<body>
+   <!-- Cabeçalho -->
+   <header>
+    <!-- Ícone de Menu para Dispositivos Móveis -->
+    <div class="menu-icon" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</div>
+
+    <!-- Logos -->
+    <div class="logo-container">
+        <a href="./index.html" class="primeira-logo">
+            <img src="./imagens/MAC CAKE LOGO.png" alt="Primeira Logo">
+        </a>
+        <a href="quemsomos.html" class="segunda-logo">
+            <img src="./imagens/Mac Cake_2_base.png" alt="Segunda Logo">
+        </a>
+    </div>
+
+    <!-- Navegação -->
+    <nav id="mainNav">
+        <!-- Botão X para fechar o menu -->
+        <div class="close-menu" onclick="closeMenu()" aria-label="Fechar menu">&times;</div>
+
+        <ul class="menu-list">
+            <li><a href="./contato.html" class="sem-sublinhado" onclick="closeMenu()">Contato</a></li>
+            <li><a href="./servicos.html" class="sem-sublinhado" onclick="closeMenu()">Serviços</a></li>
+            <li>
+                <a href="./carrinho.html" class="carrinho-link">
+                    <img src="./imagens/carrinho de compras.png.png" alt="Carrinho de Compras" class="imagem-pequena" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <!-- Toldo -->
+    <div class="toldo">
+        <img src="./imagens/toldo_base site div.png" alt="Toldo decorativo do site">
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <h1 id="primeira_parte">Meu Carrinho</h1>
+
+        <!-- Seção do Carrinho -->
+        <section class="carrinho-container">
+            <div class="carrinho-vazio" id="carrinhoVazio">
+                <p>Seu carrinho está vazio. Volte às compras e adicione itens ao carrinho.</p>
+            </div>
+
+            <div class="carrinho-itens" id="carrinhoItens">
+                <!-- Itens serão adicionados dinamicamente via JavaScript -->
+            </div>
+
+            <!-- Resumo do Carrinho -->
+            <div class="resumo-carrinho" id="resumoCarrinho">
+                <h2>Resumo do Pedido</h2>
+                <div class="total">
+                    <p>Total:</p>
+                    <p id="valorTotal">R$ 0,00</p>
+                </div>
+                <button class="btn-finalizar">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; 2025 Mac Cake. Todos os direitos reservados.</p>
+            <p>Este site e seu conteúdo são protegidos por leis de direitos autorais.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/carrinho.js"></script>
+</body>
+</html>

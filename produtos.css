@@ -1,0 +1,93 @@
+/* Resetando margens e padding do html e body */
+ body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff9ed;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+/* Estilo geral do body */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #ffc4c4;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Correção do 'espaço-entre' */
+    padding-left: 10px; /* Ajuste para não ter muito padding nas laterais */
+    padding-right: 10px; /* Ajuste para não ter muito padding nas laterais */
+    top: 0;
+    padding-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Inclui padding dentro da largura total */
+}
+
+/* Estilo para as imagens pequenas */
+.imagem-pequena {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilo do link sem sublinhado */
+.sem-sublinhado {
+    text-decoration: none !important;
+    color: rgb(75, 11, 11);
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: #000;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* Ajustando o "toldo" para ocupar 100% da largura da tela */
+.toldo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.toldo img {
+    width: 100%;
+    height: auto;
+}
+
+/* Ajustando o posicionamento das logos */
+div.Primeira.logo {
+    position: fixed; /* Fixa o elemento na tela */
+    top: 16%; /* Mantém o topo da logo a 20% da altura da tela */
+    left: 13%; /* Mantém a logo a 13% da largura da tela */
+    transform: translate(-50%, -50%); /* Centraliza a logo em relação à posição definida */
+    z-index: 10; /* Garante que a logo fique acima de outros elementos */
+}
+
+div.base.mac_cake {
+    top: 15%;
+    left: 13%;
+    transform: translate(130%, 70%);
+    z-index: 10;
+}
+
+div.copyright p {
+    margin: 5px 0;
+    font-size: 20px;
+    text-align: center;
+    background-color: #ffc4c4;
+}
+
+div.copyright p:first-child {
+    font-weight: bold;
+    text-align: center;
+}
