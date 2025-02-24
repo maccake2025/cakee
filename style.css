@@ -37,16 +37,6 @@ header {
     box-sizing: border-box; /* Inclui padding dentro da largura total */
 }
 
-
-/* Ícone de Menu */
-/* Ícone de Menu */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #000;
-}
-
 /* Container das logos */
 .logo-container {
     display: flex;
