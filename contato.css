@@ -59,6 +59,7 @@ header {
     transform: translate( 40%, 80%);
 }
 
+
 /* Navegação */
 nav {
     display: flex;
@@ -85,6 +86,9 @@ nav ul li a:hover {
     color: #ff8c8c;
 }
 
+nav ul li a:hover {
+    color: #ff8c8c;
+}
 /* Carrinho de Compras */
 .carrinho-container {
     margin-left: auto; /* Move o carrinho para o lado direito */
