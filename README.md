@@ -1,36 +1,50 @@
-# Cakee
+# 🎂 Cakee  
 
-Bem-vindo ao repositório do **Cakee**, um projeto desenvolvido por ALI, Danilo, João Pedro, Kaique e Michele.
+Bem-vindo ao **Cakee**, um site desenvolvido por **ALI, Danilo, João Pedro, Kaique e Michele**.  
 
-## Sobre o Projeto
+## 📌 Sobre o Projeto  
 
-O Cakee é um site que oferece uma variedade de produtos de confeitaria, permitindo aos usuários explorar diferentes categorias, adicionar itens ao carrinho e entrar em contato com a equipe para mais informações.
+O **Cakee** é uma plataforma para confeitaria, onde os usuários podem:  
+✔️ Explorar diversas categorias de produtos  
+✔️ Adicionar itens ao carrinho  
+✔️ Entrar em contato para mais informações  
 
-## Estrutura do Projeto
+🚨 **Atenção:** Este projeto é **público para visualização**, mas seu uso é **restrito apenas a contribuidores aprovados**. Veja a [licença](LICENSE.md) para mais detalhes.  
 
-O repositório contém os seguintes arquivos e diretórios principais:
+---
 
-- `index.html`: Página inicial do site.
-- `produtos.html`: Página que lista os produtos disponíveis.
-- `carrinho.html`: Página do carrinho de compras.
-- `contato.html`: Página de contato.
-- `quemsomos.html`: Página sobre a equipe ou empresa.
-- `servicos.html`: Página detalhando os serviços oferecidos.
-- `style.css`: Arquivo de estilos principal.
-- `produtos.css`, `carrinho.css`, `contato.css`, `quemsomos.css`, `servicos.css`: Arquivos de estilos específicos para cada página.
-- `js/`: Diretório contendo scripts JavaScript.
-- `imagens/`: Diretório contendo as imagens utilizadas no site.
+## 📂 Estrutura do Projeto  
 
-## Tecnologias Utilizadas
+📁 **Raiz do projeto**  
+- `index.html` - Página inicial  
+- `produtos.html` - Listagem de produtos  
+- `carrinho.html` - Carrinho de compras  
+- `contato.html` - Página de contato  
+- `quemsomos.html` - Sobre a equipe  
+- `servicos.html` - Serviços oferecidos  
 
-- **HTML**: Estruturação das páginas.
-- **CSS**: Estilização e layout.
-- **JavaScript**: Funcionalidades interativas.
+📁 **Estilos**  
+- `style.css` - Estilos principais  
+- Arquivos CSS específicos para cada página  
 
-## Como Executar o Projeto
+📁 **Scripts e Recursos**  
+- `js/` - Scripts JavaScript  
+- `imagens/` - Imagens usadas no site  
 
-Para visualizar o site localmente:
+---
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/maccake2025/cakee.git
+## 🚀 Tecnologias Utilizadas  
+
+✅ **HTML** - Estruturação das páginas  
+✅ **CSS** - Estilização e layout  
+✅ **JavaScript** - Funcionalidades interativas  
+
+---
+
+## 🖥️ Como Executar o Projeto  
+
+Para visualizar o site localmente:  
+
+1️⃣ Clone o repositório:  
+```bash
+git clone https://github.com/maccake2025/cakee.git
