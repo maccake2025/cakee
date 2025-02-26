@@ -9,7 +9,7 @@ O **Cakee** é uma plataforma para confeitaria, onde os usuários podem:
 ✔️ Adicionar itens ao carrinho  
 ✔️ Entrar em contato para mais informações  
 
-🚨 **Atenção:** Este projeto é **público para visualização**, mas seu uso é **restrito apenas a contribuidores aprovados**. Veja a [licença](LICENSE.md) para mais detalhes.  
+🚨 **Atenção:** Este projeto é **público para visualização**, mas seu uso é **restrito apenas a contribuidores aprovados**. Veja a [licença](LICENSE) para mais detalhes.  
 
 ---
 
