@@ -1,50 +1,50 @@
 # 🎂 Cakee  
 
-Bem-vindo ao **Cakee**, um site desenvolvido por **ALI, Danilo, João Pedro, Kaique e Michele**.  
+Welcome to **Cakee**, a website developed by **ALI, Danilo, João Pedro, Kaique, and Michele**.  
 
-## 📌 Sobre o Projeto  
+## 📌 About the Project  
 
-O **Cakee** é uma plataforma para confeitaria, onde os usuários podem:  
-✔️ Explorar diversas categorias de produtos  
-✔️ Adicionar itens ao carrinho  
-✔️ Entrar em contato para mais informações  
+**Cakee** is a platform for bakeries where users can:  
+✔️ Explore different product categories  
+✔️ Add items to the cart  
+✔️ Contact the team for more information  
 
-🚨 **Atenção:** Este projeto é **público para visualização**, mas seu uso é **restrito apenas a contribuidores aprovados**. Veja a [licença](LICENSE) para mais detalhes.  
-
----
-
-## 📂 Estrutura do Projeto  
-
-📁 **Raiz do projeto**  
-- `index.html` - Página inicial  
-- `produtos.html` - Listagem de produtos  
-- `carrinho.html` - Carrinho de compras  
-- `contato.html` - Página de contato  
-- `quemsomos.html` - Sobre a equipe  
-- `servicos.html` - Serviços oferecidos  
-
-📁 **Estilos**  
-- `style.css` - Estilos principais  
-- Arquivos CSS específicos para cada página  
-
-📁 **Scripts e Recursos**  
-- `js/` - Scripts JavaScript  
-- `imagens/` - Imagens usadas no site  
+🚨 **Attention:** This project is **publicly viewable**, but **only approved contributors are allowed to use it**. See the [license](LICENSE) for details.  
 
 ---
 
-## 🚀 Tecnologias Utilizadas  
+## 📂 Project Structure  
 
-✅ **HTML** - Estruturação das páginas  
-✅ **CSS** - Estilização e layout  
-✅ **JavaScript** - Funcionalidades interativas  
+📁 **Project Root**  
+- `index.html` - Homepage  
+- `produtos.html` - Product listing  
+- `carrinho.html` - Shopping cart  
+- `contato.html` - Contact page  
+- `quemsomos.html` - About the team  
+- `servicos.html` - Services offered  
+
+📁 **Styles**  
+- `style.css` - Main styles  
+- CSS files for individual pages  
+
+📁 **Scripts and Resources**  
+- `js/` - JavaScript scripts  
+- `imagens/` - Images used in the website  
 
 ---
 
-## 🖥️ Como Executar o Projeto  
+## 🚀 Technologies Used  
 
-Para visualizar o site localmente:  
+✅ **HTML** - Structure of the pages  
+✅ **CSS** - Styling and layout  
+✅ **JavaScript** - Interactive functionalities  
 
-1️⃣ Clone o repositório:  
+---
+
+## 🖥️ How to Run the Project  
+
+To view the site locally:  
+
+1️⃣ Clone the repository:  
 ```bash
 git clone https://github.com/maccake2025/cakee.git
