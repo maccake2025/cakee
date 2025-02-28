@@ -46,14 +46,18 @@ header {
 /* Primeira Logo */
 .primeira-logo {
     margin-right: 20px;
-    transform: translate( 60%, 40%);
+    transform: translate( -170%, 40%);
     position: relative;
     z-index: 10;
 }
 
 /* Segunda Logo */
 .segunda-logo {
-    transform: translate( 40%, 80%);
+    transform: translate( -170%, 80%);
+}
+
+.menu-icon {
+    visibility: hidden;
 }
 
 /* Estilo para as imagens pequenas */
@@ -104,7 +108,7 @@ nav ul li a:hover {
 }
 
 .carrinho-container img {
-    width: 30px;
+    width: 40px;
     height: auto;
     cursor: pointer;
 }
@@ -188,7 +192,7 @@ h1 {
     color: rgb(75, 11, 11);
     text-align: center;
     padding: 5px;
-    position: fixed;
+    position: absolute;
     width: 100%;
     bottom: 0;
 }
@@ -228,6 +232,9 @@ h1 {
     /* Segunda Logo */
     .segunda-logo {
         transform: translate( -40%, 80%);
+    }
+    .menu-icon {
+        visibility: visible;
     }
     /* Ícone de menu visível */
     .menu-icon {
@@ -283,7 +290,7 @@ h1 {
         text-align: center;
         border-radius: 10px;
         transition: background-color 0.3s ease, color 0.3s ease;
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .menu-list li a:hover {
@@ -323,6 +330,9 @@ h1 {
     /* Segunda Logo */
     .segunda-logo {
         transform: translate( 0%, 80%);
+    }
+    .menu-icon {
+        visibility: visible;
     }
     /* Ícone de menu visível */
     .menu-icon {
@@ -431,8 +441,12 @@ h1 {
     .segunda-logo {
         width: 160px;
         transform: translate( 10%, 70%);
+
     }
     /* Ícone de menu visível */
+    .menu-icon {
+        visibility: visible;
+    }
     .menu-icon {
         transform: translate( 20%, 20%);
         display: block;

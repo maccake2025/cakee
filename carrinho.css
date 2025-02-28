@@ -238,6 +238,7 @@ h1 {
     color: rgb(75, 11, 11);
     text-align: center;
     padding: 5px;
+    position: absolute;
     width: 100%;
     bottom: 0;
 }

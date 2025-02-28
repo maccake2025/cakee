@@ -1,8 +1,7 @@
 // Dados dos produtos disponíveis
 const produtos = [
     { id: 1, nome: "Bolo de Chocolate", preco: 50.0, imagem: "./imagens/carrinho2.png" },
-    { id: 2, nome: "Bolo de Morango", preco: 45.0, imagem: "./imagens/carrinho1.png" },
-    { id: 3, nome: "Bolo de Limão", preco: 40.0, imagem: "./imagens/produto3.jpg" }
+    { id: 2, nome: "Bolo de Morango", preco: 45.0, imagem: "./imagens/carrinho1.png" }
 ];
 
 // Variável global para armazenar os itens no carrinho
