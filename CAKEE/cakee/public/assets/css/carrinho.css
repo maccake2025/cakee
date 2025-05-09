@@ -1,0 +1,559 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff9ed;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff9ed;
+    color: rgb(75, 11, 11);
+    overflow-x: hidden;
+}
+
+/* Estilo do cabeçalho */
+header {
+    height: 130px;
+    background-color: #ffc4c4;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Correção do 'espaço-entre' */
+    padding-left: 10px; /* Ajuste para não ter muito padding nas laterais */
+    padding-right: 10px; /* Ajuste para não ter muito padding nas laterais */
+    top: 0;
+    padding-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box; /* Inclui padding dentro da largura total */
+}
+
+
+/* Ícone de Menu */
+/* Ícone de Menu */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Container das logos */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Primeira Logo */
+.primeira-logo {
+    margin-right: 20px;
+    transform: translate( 60%, 40%);
+    position: relative;
+    z-index: 10;
+}
+
+/* Segunda Logo */
+.segunda-logo {
+    transform: translate( 40%, 80%);
+}
+
+/* Estilo para as imagens pequenas */
+.imagem-pequena {
+    width: 30px;
+    height: auto;
+}
+
+/* Estilo do link sem sublinhado */
+.sem-sublinhado {
+    text-decoration: none !important;
+    color: rgb(75, 11, 11);
+}
+
+/* Navegação */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff8c8c;
+}
+
+nav ul li a:hover {
+    color: #ff8c8c;
+}
+/* Ajustando o "toldo" para ocupar 100% da largura da tela */
+.toldo {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.toldo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #56091f;
+    margin-bottom: 40px;
+}
+
+.carrinho-container {
+    background-color: #ffd9dd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carrinho-vazio {
+    text-align: center;
+    font-size: 18px;
+    color: #56091f;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-imagem {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.detalhes-item h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.detalhes-item p {
+    margin: 5px 0;
+    color: #56091f;
+}
+
+.quantidade-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-menos, .btn-mais {
+    background-color: #ffc4c4;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.quantidade {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-remover {
+    background-color: #ff8c8c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.resumo-carrinho {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.btn-finalizar {
+    background-color: #56091f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-finalizar:hover {
+    background-color: #ff8c8c;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #ffc4c4;
+    color: rgb(75, 11, 11);
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilos do texto de direitos autorais */
+.copyright p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.copyright p:first-child {
+    font-weight: bold;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff9ed;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+
+    .toldo {
+        width: 1000px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .primeira-logo {
+        margin-right: 20px;
+        transform: translate( -40%, 30%);
+    }
+    
+    /* Segunda Logo */
+    .segunda-logo {
+        transform: translate( -40%, 80%);
+    }
+    /* Ícone de menu visível */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Esconde o menu por padrão */
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 250px;
+        background-color: #ffc4c4;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 20px;
+        z-index: 100;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mostra o menu quando ativo */
+    nav.active {
+        display: flex;
+    }
+
+    /* Botão X para fechar o menu */
+    .close-menu {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: right;
+        margin-bottom: 20px;
+        color: #000;
+    }
+
+    /* Lista de links no menu */
+    .menu-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .menu-list li {
+        z-index: 20;
+        margin-bottom: 10px;
+    }
+
+    .menu-list li a {
+        display: block;
+        padding: 8px;
+        background-color: #fff9ed;
+        color: #000;
+        text-align: center;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 14px;
+    }
+
+    .menu-list li a:hover {
+        position: absolute;
+        z-index: 20;
+        background-color: #ff8c8c;
+        color: #fff;
+    }
+
+    /* Carrinho no menu responsivo */
+    .carrinho-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 582px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff9ed;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+    .toldo {
+        width: 1000px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .primeira-logo {
+        margin-right: 20px;
+        transform: translate( 20%, 40%);
+    }
+    
+    /* Segunda Logo */
+    .segunda-logo {
+        transform: translate( 0%, 80%);
+    }
+    /* Ícone de menu visível */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Esconde o menu por padrão */
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 250px;
+        background-color: #ffc4c4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 10px;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+        z-index: 9999 !important;
+    }
+
+    /* Mostra o menu quando ativo */
+    nav.active {
+        display: flex;
+    }
+
+    /* Botão X para fechar o menu */
+    .close-menu {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: right;
+        margin-bottom: 20px;
+        color: #000;
+        z-index: 10002;
+    }
+
+    /* Lista de links no menu */
+    .menu-list {
+        list-style: none;
+        padding: 0;
+        z-index: 10001;
+    }
+
+    .menu-list li {
+        margin-bottom: 15px;
+    }
+
+    .menu-list li a {
+        display: block;
+        padding: 5px;
+        background-color: #fff9ed;
+        color: #000;
+        text-align: center;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .menu-list li a:hover {
+        background-color: #ff8c8c;
+        color: #fff;
+    }
+
+    /* Carrinho no menu responsivo */
+    .carrinho-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff9ed;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+    header {
+        height: 75px;
+        position: relative;
+        background-color: #ffc4c4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        z-index: 10;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .toldo {
+        width: 1000px;
+        position: relative;
+        z-index: 5;
+        margin-bottom: 30px;
+    }
+
+    .primeira-logo {
+        margin-right: 20px;
+        transform: translate( 0%, 30%);
+    }
+    
+    .primeira-logo img {
+        width: 130px;
+        height: auto;
+    }
+    /* Segunda Logo */
+    .segunda-logo {
+        width: 160px;
+        transform: translate( 10%, 63%);
+    }
+
+    .segunda-logo img{
+        width: 160px;
+        height: auto;
+    }
+    /* Ícone de menu visível */
+    .menu-icon {
+        transform: translate( 20%, 20%);
+        display: block;
+    }
+
+    /* Esconde o menu por padrão */
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 250px;
+        background-color: #ffc4c4;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 20px;
+        z-index: 25;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mostra o menu quando ativo */
+    nav.active {
+        display: flex;
+    }
+
+    /* Botão X para fechar o menu */
+    .close-menu {
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: right;
+        margin-bottom: 20px;
+        color: #000;
+    }
+
+    /* Lista de links no menu */
+    .menu-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .menu-list li {
+        margin-bottom: 15px;
+    }
+
+    .menu-list li a {
+        display: block;
+        padding: 10px;
+        background-color: #fff9ed;
+        color: #000;
+        text-align: center;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .menu-list li a:hover {
+        background-color: #ff8c8c;
+        color: #fff;
+    }
+
+    /* Carrinho no menu responsivo */
+    .carrinho-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
