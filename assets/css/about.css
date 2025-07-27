@@ -1,0 +1,173 @@
+/* Reset de margens e preenchimento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cor de fundo suave para criar uma atmosfera acolhedora */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Título principal com estilo suave e convidativo */
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 3em;
+    text-align: center;
+    color: #6a4f37; /* Cor terrosa, remetendo aos produtos artesanais */
+    margin-bottom: 20px;
+}
+
+/* Estilo para o parágrafo, com espaçamento e um toque de elegância */
+p {
+    font-size: 1.2em;
+    text-align: justify;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Fundo branco para destacar o texto */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+    line-height: 1.8;
+}
+
+/* Cores de destaque para títulos e frases importantes */
+p span {
+    color: #6a4f37;
+    font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    padding: var(--space-xl) 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  h1{
+    text-align: center;
+  }
+  .main-nav {
+    display: none;
+  }
+  
+  .header-icons .auth-link span {
+    display: none;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .dropdown-content {
+    right: -50px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  h1{
+    text-align: center;
+  }
+  
+  .logo img {
+    height: 100%;
+  }
+  
+  .cart-icon {
+    font-size: 1.1rem;
+  }
+  
+  .auth-link i {
+    font-size: 1rem;
+  }
+  
+  .hero {
+    height: 60vh;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-outline {
+    margin-top: var(--space-sm);
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding-top: 70px;
+  }
+  h1{
+    text-align: center;
+  }
+  
+  .header-container {
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .logo img {
+    height: 60px;
+    width: auto;
+  }
+  
+  .mobile-nav {
+    width: 90%;
+  }
+  
+  .cart-count {
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+    top: -6px;
+    right: -6px;
+  }
+  
+  .hero {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+}
