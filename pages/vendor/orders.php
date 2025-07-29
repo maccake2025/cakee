@@ -1,15 +1,28 @@
 <?php
+// Corrige os avisos: SEMPRE inicie a sessão antes de usar $_SESSION
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once __DIR__ . '/../../includes/auth_check.php';
 require_once __DIR__ . '/../../includes/vendor_check.php';
 require_once __DIR__ . '/../../config/database.php';
 
+// Garante que $_SESSION está definido e user_id está presente após os checks
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+if (!$user_id) {
+    header('Location: /pages/login.php');
+    exit();
+}
+
 $db = new Database();
 $conn = $db->connect();
-$user_id = $_SESSION['user_id'];
 
 $order_detail = null;
+$items = [];
+$orders = [];
+
 // Ver detalhes do pedido
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $order_id = (int)$_GET['id'];
     // Busca pedido e itens do vendedor
     $stmt = $conn->prepare("
@@ -30,9 +43,7 @@ if (isset($_GET['id'])) {
     ");
     $stmt->execute([$order_id, $user_id]);
     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-else {
+} else {
     // Listar pedidos recebidos pelo vendedor
     $stmt = $conn->prepare("
         SELECT DISTINCT p.id, p.data_pedido, p.status, p.total, u.nome as cliente

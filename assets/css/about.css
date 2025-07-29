@@ -1,39 +1,66 @@
-/* Reset de margens e preenchimento */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Cor de fundo suave para criar uma atmosfera acolhedora */
+/* Corpo da página com visual leve e moderno */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background-color: #fdfaf6; /* tom suave e levemente quente */
+    color: #3b3026; /* tom escuro, terroso */
+    line-height: 1.75;
+    padding: 40px 20px;
 }
 
-/* Título principal com estilo suave e convidativo */
+/* Título principal com estilo artesanal e elegante */
 h1 {
-    font-family: 'Georgia', serif;
-    font-size: 3em;
+    font-family: 'Pacifico', cursive; /* Fonte cursiva com estilo artesanal e delicado */
+    font-size: 3.2em;
     text-align: center;
-    color: #6a4f37; /* Cor terrosa, remetendo aos produtos artesanais */
-    margin-bottom: 20px;
+    color: #d48c70; /* Um tom doce, que lembra caramelo ou glacê */
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
+    letter-spacing: 1px;
+    position: relative;
 }
 
-/* Estilo para o parágrafo, com espaçamento e um toque de elegância */
+/* Detalhe decorativo opcional: linha abaixo do título como uma "decoração de bolo" */
+h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f3c9b1; /* tom pastel suave */
+    margin: 16px auto 0;
+    border-radius: 2px;
+}
+
+/* Estilo do parágrafo com foco em conforto visual */
 p {
-    font-size: 1.2em;
+    font-size: 1.15em;
     text-align: justify;
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff; /* Fundo branco para destacar o texto */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
-    line-height: 1.8;
+    padding: 30px 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    line-height: 1.85;
+    color: #4a3c2f;
+}
+
+/* Adição opcional: estilo responsivo para dispositivos menores */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    p {
+        padding: 20px;
+        font-size: 1em;
+    }
 }
 
 /* Cores de destaque para títulos e frases importantes */

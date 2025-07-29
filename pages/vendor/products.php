@@ -1,13 +1,23 @@
 <?php
+// Corrige os avisos de sessão: sempre inicie a sessão!
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once __DIR__ . '/../../includes/auth_check.php';
 require_once __DIR__ . '/../../includes/vendor_check.php';
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../functions/sanitize.php';
 require_once __DIR__ . '/../../functions/upload.php';
 
+// Garante que $_SESSION está definido e user_id está presente após os checks
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+if (!$user_id) {
+    header('Location: /pages/login.php');
+    exit();
+}
+
 $db = new Database();
 $conn = $db->connect();
-$user_id = $_SESSION['user_id'];
 
 $error = '';
 $success = '';
