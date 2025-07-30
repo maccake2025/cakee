@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
     <title>Meu Perfil - Cakee Market</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/vendor_dashboard.css">
     <style>
         .profile-container { max-width: 600px; margin: 0 auto; padding: 30px 0; }
         .profile-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 9px rgba(0,0,0,0.06); padding: 22px 25px; margin-bottom: 25px; }

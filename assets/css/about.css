@@ -1,18 +1,8 @@
 /* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 /* Corpo da página com visual leve e moderno */
-body {
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    background-color: #fdfaf6; /* tom suave e levemente quente */
-    color: #3b3026; /* tom escuro, terroso */
-    line-height: 1.75;
-    padding: 40px 20px;
-}
+
 
 /* Título principal com estilo artesanal e elegante */
 h1 {
@@ -26,19 +16,8 @@ h1 {
     position: relative;
 }
 
-/* Detalhe decorativo opcional: linha abaixo do título como uma "decoração de bolo" */
-h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: #f3c9b1; /* tom pastel suave */
-    margin: 16px auto 0;
-    border-radius: 2px;
-}
-
 /* Estilo do parágrafo com foco em conforto visual */
-p {
+#mission {
     font-size: 1.15em;
     text-align: justify;
     max-width: 960px;
@@ -51,150 +30,3 @@ p {
     color: #4a3c2f;
 }
 
-/* Adição opcional: estilo responsivo para dispositivos menores */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.2em;
-    }
-
-    p {
-        padding: 20px;
-        font-size: 1em;
-    }
-}
-
-/* Cores de destaque para títulos e frases importantes */
-p span {
-    color: #6a4f37;
-    font-weight: bold;
-}
-
-@media (max-width: 1200px) {
-  .section {
-    padding: var(--space-xl) 0;
-  }
-}
-
-@media (max-width: 992px) {
-  .mobile-menu-btn {
-    display: block;
-  }
-  h1{
-    text-align: center;
-  }
-  .main-nav {
-    display: none;
-  }
-  
-  .header-icons .auth-link span {
-    display: none;
-  }
-  
-  .user-name {
-    display: none;
-  }
-  
-  .dropdown-content {
-    right: -50px;
-  }
-  
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero p {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-container {
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  h1{
-    text-align: center;
-  }
-  
-  .logo img {
-    height: 100%;
-  }
-  
-  .cart-icon {
-    font-size: 1.1rem;
-  }
-  
-  .auth-link i {
-    font-size: 1rem;
-  }
-  
-  .hero {
-    height: 60vh;
-  }
-  
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .hero p {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-lg);
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: var(--space-lg);
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .btn-outline {
-    margin-top: var(--space-sm);
-  }
-}
-
-@media (max-width: 576px) {
-  body {
-    padding-top: 70px;
-  }
-  h1{
-    text-align: center;
-  }
-  
-  .header-container {
-    padding: var(--space-sm) var(--space-md);
-  }
-  
-  .logo img {
-    height: 60px;
-    width: auto;
-  }
-  
-  .mobile-nav {
-    width: 90%;
-  }
-  
-  .cart-count {
-    width: 16px;
-    height: 16px;
-    font-size: 0.6rem;
-    top: -6px;
-    right: -6px;
-  }
-  
-  .hero {
-    height: 50vh;
-    min-height: 400px;
-  }
-  
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
-  .footer-container {
-    grid-template-columns: 1fr;
-  }
-}

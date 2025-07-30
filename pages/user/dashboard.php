@@ -95,18 +95,6 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
 <?php include __DIR__ . '/../../includes/header.php'; ?>
 <div class="client-dashboard">
-    <div class="profile-panel">
-        <?php if (!empty($user['foto_perfil'])): ?>
-            <img src="/assets/images/uploads/profiles/<?= htmlspecialchars($user['foto_perfil']) ?>" alt="Foto do cliente" class="profile-pic">
-        <?php else: ?>
-            <img src="/assets/images/default_profile.png" class="profile-pic" alt="Foto do cliente">
-        <?php endif; ?>
-        <div>
-            <h2><?= htmlspecialchars($user['nome']) ?></h2>
-            <div style="color: #757575; font-size: 1.07em;"><?= htmlspecialchars($user['email']) ?></div>
-        </div>
-        <a href="/pages/user/profile.php" class="btn-small" style="margin-left:auto;">Editar perfil</a>
-    </div>
     <div class="stats-block">
         <div class="stat-card">
             <span class="stat-value"><?= $total_orders ?></span>
@@ -119,10 +107,6 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="stat-card">
             <span class="stat-value"><?= $total_reviews ?></span>
             <span class="stat-label">Avaliações</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-value"><?= count($favorites) ?></span>
-            <span class="stat-label">Favoritos</span>
         </div>
     </div>
     <div class="section">
@@ -193,41 +177,7 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         <?php endif; ?>
     </div>
-    <div class="section">
-        <h2>Favoritos</h2>
-        <?php if (empty($favorites)): ?>
-            <p>Você ainda não tem produtos favoritos.</p>
-        <?php else: ?>
-            <table class="table-list">
-                <thead>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Produto</th>
-                        <th>Adicionado em</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($favorites as $fav): ?>
-                    <tr>
-                        <td>
-                            <img src="/assets/images/uploads/products/<?= htmlspecialchars($fav['imagem_principal']) ?>" class="fav-img" alt="<?= htmlspecialchars($fav['nome']) ?>">
-                        </td>
-                        <td><?= htmlspecialchars($fav['nome']) ?></td>
-                        <td><?= date('d/m/Y H:i', strtotime($fav['data_adicionado'])) ?></td>
-                        <td>
-                            <a href="/pages/product_detail.php?id=<?= $fav['produto_id'] ?>" class="btn-small">Ver Produto</a>
-                        </td>
-                    </tr>
-                <?php endforeach;?>
-                </tbody>
-            </table>
-        <?php endif; ?>
-    </div>
-    <div style="text-align:center;margin:28px 0;">
-        <a href="/pages/user/profile.php" class="btn-small">Editar perfil</a>
-        <a href="/pages/auth/logout.php" class="btn-small" style="background:#888;">Sair</a>
-    </div>
+
 </div>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
 <!-- FontAwesome -->
