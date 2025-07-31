@@ -33,7 +33,7 @@ $categories = $conn->query("
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakee Market - Deliciosos Bolos Artesanais</title>
+    <title>Mac Cake - Deliciosos Bolos Artesanais</title>
     <meta name="description" content="Compre os melhores bolos artesanais diretamente dos confeiteiros. Variedade de sabores e opções para todos os gostos.">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -106,8 +106,8 @@ $categories = $conn->query("
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2 class="section-title">Sobre o Cakee Market</h2>
-                        <p>O Cakee Market conecta você aos melhores confeiteiros da sua região, oferecendo bolos artesanais feitos com ingredientes de qualidade e muito carinho.</p>
+                        <h2 class="section-title">Sobre a Mac Cake</h2>
+                        <p>A Mack cake conecta você aos melhores confeiteiros da sua região, oferecendo bolos artesanais feitos com ingredientes de qualidade e muito carinho.</p>
                         <p>Nossa missão é valorizar o trabalho dos pequenos produtores e levar até você uma experiência gastronômica única.</p>
                         <div class="about-features">
                             <div class="feature">

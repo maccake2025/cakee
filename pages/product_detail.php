@@ -36,7 +36,7 @@ if (!$product_not_found && !empty($product['imagens_adicionais'])) {
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title><?= !$product_not_found ? htmlspecialchars($product['nome']) . ' - Cakee Market' : 'Produto não encontrado - Cakee Market' ?></title>
+    <title><?= !$product_not_found ? htmlspecialchars($product['nome']) . ' - Mac Cake' : 'Produto não encontrado - Mac Cake' ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= !$product_not_found ? htmlspecialchars($product['descricao']) : 'Produto não encontrado' ?>">
     <link rel="stylesheet" href="../assets/css/style.css">

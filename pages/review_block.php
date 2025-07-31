@@ -1,11 +1,30 @@
 <?php
+// review_block.php
 // Recebe: $product_id, $user_id (se logado)
+// Corrigido para evitar session_start duplicado
+
 require_once __DIR__ . '/../config/database.php';
-session_start();
+
+// Só inicia sessão se não estiver ativa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 $db = new Database();
 $conn = $db->connect();
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+// Você pode receber $product_id como variável já existente ou via GET/POST
+if (!isset($product_id)) {
+    $product_id = isset($_GET['product_id']) ? (int)$_GET['product_id'] : 0;
+}
+if ($product_id < 1) {
+    echo '<div class="alert info">Produto inválido.</div>';
+    return;
+}
+
+// Pega as 10 avaliações mais recentes
 $stmt = $conn->prepare("
     SELECT a.*, u.nome as cliente_nome, u.foto_perfil as cliente_foto
     FROM avaliacoes a
@@ -16,6 +35,7 @@ $stmt = $conn->prepare("
 $stmt->execute([$product_id]);
 $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Média e total
 $stmt = $conn->prepare("SELECT AVG(nota) as avg_rating, COUNT(*) as total FROM avaliacoes WHERE produto_id = ?");
 $stmt->execute([$product_id]);
 $r = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -44,7 +64,7 @@ if ($user_id) {
     <?php if ($user_review): ?>
         <div class="alert info">Você já avaliou este produto.</div>
         <div class="review-form-card">
-            <form class="edit-review-form" data-action="edit" data-review-id="<?= $user_review['id'] ?>">
+            <form class="edit-review-form review-form" data-action="edit" data-review-id="<?= $user_review['id'] ?>">
                 <label>Nota:</label>
                 <div class="review-stars-input">
                     <?php for ($i = 1; $i <= 5; $i++): ?>
@@ -61,7 +81,7 @@ if ($user_id) {
     <?php else: ?>
         <div class="review-form-card">
             <h3>Deixe sua avaliação</h3>
-            <form class="add-review-form" data-action="add">
+            <form class="add-review-form review-form" data-action="add">
                 <label>Nota:</label>
                 <div class="review-stars-input">
                     <?php for ($i = 1; $i <= 5; $i++): ?>
@@ -80,14 +100,14 @@ if ($user_id) {
 <?php endif; ?>
 
 <?php if (empty($reviews)): ?>
-    <p>Este produto ainda não possui avaliações.</p>
+    <p class="no-reviews-msg">Este produto ainda não possui avaliações.</p>
 <?php else: ?>
     <div class="reviews-list">
         <?php foreach ($reviews as $review): ?>
             <div class="review-card">
                 <div class="review-header">
                     <?php if ($review['cliente_foto']): ?>
-                        <img src="/assets/images/uploads/profiles/<?= htmlspecialchars($review['cliente_foto']) ?>" 
+                        <img src="/assets/images/uploads/profiles/<?= htmlspecialchars($review['cliente_foto']) ?>"
                              alt="Foto de <?= htmlspecialchars($review['cliente_nome']) ?>"
                              class="review-avatar">
                     <?php else: ?>
@@ -104,7 +124,7 @@ if ($user_id) {
                 <div class="review-body">
                     <p><?= nl2br(htmlspecialchars($review['comentario'])) ?></p>
                 </div>
-                <?php if ($review['resposta_vendedor']): ?>
+                <?php if (!empty($review['resposta_vendedor'])): ?>
                     <div class="review-reply">
                         <strong>Resposta do vendedor:</strong>
                         <p><?= nl2br(htmlspecialchars($review['resposta_vendedor'])) ?></p>

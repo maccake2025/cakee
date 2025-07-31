@@ -208,6 +208,16 @@ INSERT INTO produtos (vendedor_id, nome, slug, descricao, preco, categoria, imag
 INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
 ('PRIMEIRACOMPRA', 15.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
 
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('JOÂO-TEIXEIRA-GOSTOSO', 25.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+
+
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('ALIHABAO', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('BOMBASGAY', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+
 -- Criar triggers
 
 -- Atualizar data de atualização do produto

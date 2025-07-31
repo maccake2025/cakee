@@ -10,7 +10,7 @@ $cart = new Cart($conn);
 // Verifica login
 $user_id = $_SESSION['user_id'] ?? null;
 if (!$user_id || !is_numeric($user_id)) {
-    header('Location: /pages/login.php');
+    header('Location: /pages/auth/login.php');
     exit();
 }
 

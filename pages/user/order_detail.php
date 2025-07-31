@@ -20,6 +20,47 @@ if ($pedido_id < 1) {
     exit();
 }
 
+$success_msg = '';
+$error_msg = '';
+
+// Cancelar pedido (POST seguro)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cancelar_pedido'])) {
+    // Checa status do pedido e se pertence ao usuário
+    $stmt = $conn->prepare("SELECT status FROM pedidos WHERE id = ? AND cliente_id = ? LIMIT 1");
+    $stmt->execute([$pedido_id, $user_id]);
+    $pedido_status = $stmt->fetchColumn();
+
+    if (!$pedido_status) {
+        $error_msg = "Pedido não encontrado.";
+    } elseif (in_array(strtolower($pedido_status), ['cancelado', 'entregue'])) {
+        $error_msg = "Este pedido não pode mais ser cancelado.";
+    } else {
+        // Cancela o pedido
+        $stmt = $conn->prepare("UPDATE pedidos SET status = 'cancelado', data_atualizacao = NOW() WHERE id = ? AND cliente_id = ?");
+        $stmt->execute([$pedido_id, $user_id]);
+        // Cria log - compatível com tabela que NÃO tem pedido_id (só usuario_id, acao, descricao, ip, user_agent, data_log)
+        $ip = $_SERVER['REMOTE_ADDR'] ?? null;
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? null;
+        $stmt = $conn->prepare("INSERT INTO logs (usuario_id, acao, descricao, ip, user_agent, data_log) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([
+            $user_id,
+            'cancelamento',
+            "Pedido #$pedido_id cancelado pelo cliente",
+            $ip,
+            $userAgent
+        ]);
+        $success_msg = "Pedido cancelado com sucesso!";
+        // Redireciona para evitar repost POST
+        header("Location: ?id=$pedido_id&success=1");
+        exit();
+    }
+}
+
+// Mensagem pós-cancelamento
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    $success_msg = "Pedido cancelado com sucesso!";
+}
+
 // Busca pedido e dados do cliente
 $stmt = $conn->prepare("
     SELECT p.*, u.nome AS cliente_nome, u.email AS cliente_email, u.telefone AS cliente_telefone
@@ -51,9 +92,9 @@ if (!$pedido) {
     $stmt_cupom->execute([$pedido_id]);
     $cupom_info = $stmt_cupom->fetch(PDO::FETCH_ASSOC);
 
-    // Histórico/log do pedido (corrigido para data_log)
+    // Histórico/log do pedido: agora busca logs relacionados contendo o número do pedido na descrição
     $stmt_logs = $conn->prepare("SELECT l.*, u.nome AS usuario_nome FROM logs l LEFT JOIN usuarios u ON l.usuario_id = u.id WHERE l.descricao LIKE ? ORDER BY l.data_log DESC");
-    $stmt_logs->execute(["Pedido #$pedido_id%"]);
+    $stmt_logs->execute(['%Pedido #'.$pedido_id.'%']);
     $logs = $stmt_logs->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
@@ -66,20 +107,6 @@ if (!$pedido) {
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/order_detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .order-container { max-width: 800px; margin: 0 auto; padding: 32px 0; }
-        .order-table { width:100%; border-collapse:collapse; background:#fff; margin-bottom:24px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.04);}
-        .order-table th,.order-table td{padding:9px 7px; border-bottom:1px solid #f0f0f0;}
-        .order-table th {background:#f7f7f7;}
-        .order-table tr:last-child td{border-bottom:none;}
-        .order-summary-block{background:#fff; border-radius:7px; box-shadow:0 2px 8px rgba(0,0,0,0.03); padding:15px 20px; margin-bottom:20px;}
-        .status-pendente{color:#c60; font-weight:600;}
-        .status-processando{color:#06c; font-weight:600;}
-        .status-enviado{color:#09c; font-weight:600;}
-        .status-entregue{color:#090; font-weight:600;}
-        .status-cancelado{color:#d00; font-weight:600;}
-        .order-log-list{background:#fafafa; border-radius:7px; box-shadow:0 2px 8px rgba(0,0,0,0.03); padding:14px 18px; font-size:.98em;}
-    </style>
 </head>
 <body>
 <?php require_once __DIR__ . '/../../includes/header.php'; ?>
@@ -89,6 +116,13 @@ if (!$pedido) {
         <div class="alert alert-erro">Pedido não encontrado ou você não tem permissão para visualizar.</div>
         <a href="/pages/user/orders.php" class="btn btn-primario">Ver meus pedidos</a>
     <?php else: ?>
+        <?php if ($success_msg): ?>
+            <div class="alert alert-sucesso"><?= htmlspecialchars($success_msg) ?></div>
+        <?php endif; ?>
+        <?php if ($error_msg): ?>
+            <div class="alert alert-erro"><?= htmlspecialchars($error_msg) ?></div>
+        <?php endif; ?>
+
         <div class="order-summary-block">
             <div><strong>Status:</strong>
                 <?php
@@ -105,6 +139,18 @@ if (!$pedido) {
                 <div><strong>Observações:</strong> <?= nl2br(htmlspecialchars($pedido['observacoes'])) ?></div>
             <?php endif; ?>
         </div>
+        <!-- Cancelar Pedido (apenas se possível) -->
+        <?php
+        $status_pode_cancelar = in_array(strtolower($pedido['status']), ['pendente', 'processando']);
+        if ($status_pode_cancelar):
+        ?>
+            <form method="post" class="cancel-order-form" onsubmit="return confirm('Tem certeza que deseja cancelar este pedido?');" style="margin-bottom:24px;">
+                <button type="submit" name="cancelar_pedido" class="btn btn-danger" style="background:#dc3545;color:#fff;">
+                    <i class="fas fa-ban"></i> Cancelar Pedido
+                </button>
+            </form>
+        <?php endif; ?>
+
         <h2>Produtos do Pedido</h2>
         <table class="order-table">
             <thead>
@@ -120,16 +166,17 @@ if (!$pedido) {
             <?php foreach ($itens as $item): ?>
                 <tr>
                     <td>
-                        <img src="/assets/images/uploads/products/<?= htmlspecialchars($item['imagem_produto']) ?>" width="40">
+                        <img src="/assets/images/uploads/products/<?= htmlspecialchars($item['imagem_produto']) ?>" width="40"
+                             onerror="this.src='/assets/images/default-product.jpg'">
                         <?= htmlspecialchars($item['nome_produto']) ?>
                         <?php if (!empty($item['categoria'])): ?>
-                            <br><span style="font-size:.9em;color:#666;">Categoria: <?= htmlspecialchars($item['categoria']) ?></span>
+                            <br><span class="categoria">Categoria: <?= htmlspecialchars($item['categoria']) ?></span>
                         <?php endif; ?>
                     </td>
-                    <td><?= htmlspecialchars($item['vendedor_nome']) ?></td>
-                    <td>R$ <?= number_format($item['preco_unitario'], 2, ',', '.') ?></td>
-                    <td><?= $item['quantidade'] ?></td>
-                    <td>R$ <?= number_format($item['preco_unitario'] * $item['quantidade'], 2, ',', '.') ?></td>
+                    <td class="vendedor"><?= htmlspecialchars($item['vendedor_nome']) ?></td>
+                    <td class="preco-unitario">R$ <?= number_format($item['preco_unitario'], 2, ',', '.') ?></td>
+                    <td class="quantidade"><?= $item['quantidade'] ?></td>
+                    <td class="subtotal">R$ <?= number_format($item['preco_unitario'] * $item['quantidade'], 2, ',', '.') ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -138,9 +185,9 @@ if (!$pedido) {
             <div><strong>Subtotal:</strong> R$ <?= number_format($pedido['subtotal'], 2, ',', '.') ?></div>
             <div><strong>Taxa de entrega:</strong> R$ <?= number_format($pedido['taxa_entrega'], 2, ',', '.') ?></div>
             <?php if ($cupom_info): ?>
-                <div><strong>Desconto Cupom:</strong> (<?= htmlspecialchars($cupom_info['codigo']) ?>) R$ <?= number_format($cupom_info['valor_desconto'], 2, ',', '.') ?></div>
+                <div class="cupom"><strong>Desconto Cupom:</strong> (<?= htmlspecialchars($cupom_info['codigo']) ?>) R$ <?= number_format($cupom_info['valor_desconto'], 2, ',', '.') ?></div>
             <?php endif; ?>
-            <div style="font-size:1.1em; font-weight:600; margin-top:7px;">
+            <div class="total">
                 <strong>Total:</strong> R$ <?= number_format($pedido['total'], 2, ',', '.') ?>
             </div>
         </div>
@@ -150,8 +197,8 @@ if (!$pedido) {
                 <ul>
                 <?php foreach ($logs as $log): ?>
                     <li>
-                        <span><?= date('d/m/Y H:i', strtotime($log['data_log'])) ?></span>
-                        - <span><?= htmlspecialchars($log['acao']) ?></span>
+                        <span class="log-date"><?= date('d/m/Y H:i', strtotime($log['data_log'])) ?></span>
+                        - <span class="log-action"><?= htmlspecialchars($log['acao']) ?></span>
                         <?php if ($log['usuario_nome']): ?>
                             por <strong><?= htmlspecialchars($log['usuario_nome']) ?></strong>
                         <?php endif; ?>
@@ -165,8 +212,10 @@ if (!$pedido) {
         <?php else: ?>
             <p>Nenhum registro de histórico para este pedido.</p>
         <?php endif; ?>
-        <a href="/pages/user/orders.php" class="btn btn-secundario"><i class="fas fa-arrow-left"></i> Voltar para meus pedidos</a>
-        <a href="/pages/products.php" class="btn btn-primario">Continuar Comprando</a>
+        <div style="margin-top:22px;">
+            <a href="/pages/user/orders.php" class="btn btn-secundario"><i class="fas fa-arrow-left"></i> Voltar para meus pedidos</a>
+            <a href="/pages/products.php" class="btn btn-primario"><i class="fas fa-shopping-basket"></i> Continuar Comprando</a>
+        </div>
     <?php endif; ?>
 </div>
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/header.php';
+// ATENÇÃO: NÃO INCLUA HEADER HTML ANTES DE QUALQUER REDIRECIONAMENTO OU HEADER()
+// Carregue somente as dependências e inicialize variáveis antes do output HTML
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../classes/Cart.php';
 
@@ -61,14 +62,12 @@ if (isset($_SESSION['cupom'])) {
     if ($total < 0) $total = 0;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras - Cakee Market</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -90,7 +89,7 @@ if (isset($_SESSION['cupom'])) {
         
         <?php if (empty($itens_carrinho)): ?>
             <div class="carrinho-vazio">
-                <img src="../assets/images/empty-cart.svg" alt="Carrinho vazio">
+                <img src="../assets/images/uploads/cesta-vazia.png" alt="Carrinho vazio">
                 <p>Seu carrinho está vazio</p>
                 <a href="/pages/products.php" class="btn btn-primario">Continuar Comprando</a>
             </div>
@@ -186,7 +185,7 @@ if (isset($_SESSION['cupom'])) {
                 
                 <?php if (isset($_SESSION['cupom'])): ?>
                     <div class="cupom-aplicado">
-                        <p>Cupom aplicado: <strong><?= $_SESSION['cupom']['codigo'] ?></strong></p>
+                        <p>Cupom aplicado: <strong><?= htmlspecialchars($_SESSION['cupom']['codigo']) ?></strong></p>
                         <p>Desconto: R$ <?= number_format($_SESSION['cupom']['desconto'], 2, ',', '.') ?></p>
                     </div>
                 <?php else: ?>

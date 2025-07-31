@@ -3,13 +3,15 @@
     <footer>
         <div class="footer-container">
             <div class="footer-section">
-                <h3>Cakee Market</h3>
+                <h3>Mac Cake</h3>
                 <p>Conectando você aos melhores confeiteiros artesanais da sua região.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/15rMVmc6te/" aria-label="Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                    <a href="https://www.instagram.com/mac.cake?igsh=MXNrZWgxbGRrNHIrzg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://github.com/maccake2025/" aria-label="GitHub" target="_blank">
+                    <i class="fab fa-github"></i></a>
                 </div>
             </div>
             
@@ -47,20 +49,15 @@
                 <ul class="contact-info">
                     <li><i class="fas fa-map-marker-alt"></i> Rua dos Bolos, 123 - Centro</li>
                     <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-                    <li><i class="fas fa-envelope"></i> contato@cakeemarket.com</li>
+                    <li><i class="fas fa-envelope"></i> maccake21@gmail.com</li>
                     <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; <?= date('Y') ?> Cakee Market. Todos os direitos reservados.</p>
-            <div class="payment-methods">
-                <i class="fab fa-cc-visa" title="Visa"></i>
-                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i class="fab fa-cc-paypal" title="PayPal"></i>
-                <i class="fab fa-pix" title="PIX"></i>
-            </div>
+            <p>&copy; <?= date('Y') ?> Mac Cake. Todos os direitos reservados.</p>
+            
         </div>
     </footer>
 

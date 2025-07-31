@@ -1,0 +1,282 @@
+/* ================================
+   Cakee Market - orders.css
+   Página "Meus Pedidos"
+   ================================ */
+
+/* Reset básico (caso não venha do style.css) */
+.orders-page, .orders-page * { box-sizing: border-box; }
+
+/* --- Página --- */
+.orders-page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 15px 65px 15px;
+    background: var(--light-color, #f8f9fa);
+    min-height: 80vh;
+}
+
+.orders-page > h1 {
+    font-size: 2.1rem;
+    text-align: center;
+    color: var(--primary-color, #ff6b6b);
+    font-weight: 700;
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+}
+
+/* --- Alerta de erro --- */
+.alert-error {
+    background: #ffeaea;
+    color: #b71c1c;
+    border: 1px solid #ffd0d0;
+    border-radius: var(--border-radius, 8px);
+    padding: 13px 16px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* --- Sem pedidos --- */
+.no-orders {
+    text-align: center;
+    background: #fff;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--box-shadow, 0 2px 8px rgba(0,0,0,0.08));
+    padding: 40px 18px;
+    margin: 40px auto 0 auto;
+    max-width: 420px;
+}
+
+.no-orders img {
+    width: 130px;
+    margin-bottom: 18px;
+    opacity: 0.92;
+}
+
+.no-orders p {
+    font-size: 1.13rem;
+    color: var(--dark-light, #555);
+    margin-bottom: 16px;
+}
+
+/* --- Lista de pedidos --- */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* --- Card de pedido --- */
+.order-card {
+    background: #fff;
+    border-radius: var(--border-radius-lg, 12px);
+    box-shadow: var(--box-shadow, 0 2px 8px rgba(0,0,0,0.08));
+    padding: 28px 28px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    animation: fadeIn .38s;
+}
+
+/* --- Header do pedido --- */
+.order-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    border-bottom: 1px solid #f4eeee;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    font-size: 1.04rem;
+}
+
+.order-id {
+    font-weight: 600;
+    color: var(--primary-color, #ff6b6b);
+    letter-spacing: .5px;
+}
+
+.order-date, .order-status {
+    color: #888;
+    font-size: 0.97rem;
+}
+
+.order-status {
+    padding: 4px 13px;
+    border-radius: 16px;
+    background: #f9f7f7;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: capitalize;
+}
+.status-pendente, .status-pending {
+    background: #fff8e1;
+    color: var(--warning-color, #ffc107);
+}
+.status-processando, .status-processing {
+    background: #e3f4ff;
+    color: var(--info-color, #17a2b8);
+}
+.status-cancelado, .status-canceled {
+    background: #ffeaea;
+    color: var(--danger-color, #dc3545);
+}
+.status-entregue, .status-delivered {
+    background: #e2fad7;
+    color: var(--success-color, #28a745);
+}
+
+/* --- Corpo do pedido --- */
+.order-body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.order-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 8px;
+    background: #fafafa;
+    border-radius: 8px;
+    min-width: 190px;
+    max-width: 340px;
+    flex: 1 1 210px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+}
+
+.order-item img {
+    width: 56px;
+    height: 56px;
+    border-radius: 7px;
+    object-fit: cover;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 1.01rem;
+}
+
+.item-info h3 {
+    font-size: 1.08rem;
+    color: var(--dark-color, #333);
+    font-weight: 600;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.item-info span {
+    color: #666;
+    font-size: 0.98rem;
+}
+
+/* --- Resumo do pedido --- */
+.order-summary {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 1.06rem;
+}
+.order-summary strong {
+    color: var(--primary-color, #ff6b6b);
+    font-weight: 700;
+}
+
+/* --- Rodapé do pedido (ações) --- */
+.order-footer {
+    display: flex;
+    gap: 18px;
+    margin-top: 13px;
+    flex-wrap: wrap;
+}
+
+.order-footer .btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 145px;
+    justify-content: center;
+    font-size: 1.03rem;
+    padding: 9px 18px;
+    font-weight: 500;
+}
+.order-footer .btn-outline {
+    background: transparent;
+    color: var(--primary-color, #ff6b6b);
+    border: 2px solid var(--primary-color, #ff6b6b);
+}
+.order-footer .btn-outline:hover,
+.order-footer .btn-outline:focus {
+    background: var(--primary-color, #ff6b6b);
+    color: #fff;
+}
+.order-footer .btn-primary {
+    background: var(--primary-color, #ff6b6b);
+    color: #fff;
+}
+.order-footer .btn-primary:hover {
+    background: var(--primary-hover, #ff5252);
+}
+
+/* --- Animação fadeIn --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(18px);}
+    to { opacity: 1; transform: none;}
+}
+
+/* ================================
+   RESPONSIVO
+   ================================ */
+@media (max-width: 900px) {
+    .orders-page {
+        padding: 30px 1vw 40px 1vw;
+    }
+    .orders-list { gap: 18px; }
+    .order-card { padding: 16px 7px 12px 7px; }
+    .order-header { gap: 9px; font-size: 0.98rem; }
+    .order-item { min-width: 130px; max-width: 220px; gap: 6px; }
+    .order-item img { width: 40px; height: 40px; }
+    .item-info h3 { max-width: 90px; font-size: 0.98rem;}
+    .order-footer .btn { min-width: 110px; padding: 7px 10px; font-size: 0.97rem;}
+}
+
+@media (max-width: 600px) {
+    .orders-page { padding: 13px 0 28px 0; }
+    .orders-page > h1 { font-size: 1.3rem; margin-bottom: 16px; }
+    .orders-list { gap: 10px; }
+    .order-card { padding: 8px 2px 6px 2px; }
+    .order-header { gap: 5px; font-size: 0.94rem; }
+    .order-item { min-width: 90px; max-width: 140px; gap: 4px; padding: 7px 2px;}
+    .order-item img { width: 28px; height: 28px; }
+    .item-info h3 { max-width: 55px; font-size: 0.89rem;}
+    .order-footer .btn { min-width: 80px; padding: 6px 5px; font-size: 0.89rem;}
+    .no-orders { padding: 16px 3px; }
+    .no-orders img { width: 62px; }
+    .no-orders p { font-size: 0.97rem; }
+}
+
+/* ================================
+   UTILITÁRIOS ADICIONAIS
+   ================================ */
+.status-aguardando, .status-awaiting {
+    background: #e1eaff;
+    color: #5173e3;
+}
