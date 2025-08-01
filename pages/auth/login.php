@@ -146,7 +146,7 @@ if (isset($_GET['success'])) {
                         <input type="checkbox" name="remember" id="remember">
                         <span>Lembrar de mim</span>
                     </label>
-                    <a href="/melhorcakee/pages/auth/forgot_password.php" class="text-link">Esqueceu a senha?</a>
+                    <a href="/pages/auth/forgot_password.php" class="text-link">Esqueceu a senha?</a>
                 </div>
                 
                 <button type="submit" class="btn btn-primary btn-block">

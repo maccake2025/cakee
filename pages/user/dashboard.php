@@ -69,7 +69,7 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <title>Painel do Cliente - Cakee Market</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/cliente.css">
     <style>
         .client-dashboard { max-width: 1100px; margin: 0 auto; padding: 28px 10px; }
         .profile-panel { display:flex; align-items:center; gap:26px; background:#fff; border-radius:8px; box-shadow:0 2px 9px rgba(0,0,0,0.06); padding:16px 18px; margin-bottom:30px;}

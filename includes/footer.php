@@ -22,8 +22,6 @@
                     <li><a href="/pages/products.php">Produtos</a></li>
                     <li><a href="/pages/about.php">Sobre Nós</a></li>
                     <li><a href="/pages/contact.php">Contato</a></li>
-                    <li><a href="/pages/faq.php">Perguntas Frequentes</a></li>
-                    <li><a href="/pages/terms.php">Termos de Serviço</a></li>
                 </ul>
             </div>
             
@@ -44,15 +42,7 @@
                 </ul>
             </div>
             
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> Rua dos Bolos, 123 - Centro</li>
-                    <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-                    <li><i class="fas fa-envelope"></i> maccake21@gmail.com</li>
-                    <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
-                </ul>
-            </div>
+
         </div>
         
         <div class="footer-bottom">

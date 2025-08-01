@@ -25,8 +25,8 @@ $page_title = "Contato";
 
     <main class="contact-page">
         <section class="contact-info">
-            <h1>Fale Conosco</h1>
-            <p>
+            <h1 id="louco">Fale Conosco</h1>
+            <p id="massa">
                 Tem dúvidas, sugestões ou precisa de suporte?<br>
                 Preencha o formulário abaixo ou envie um e-mail para <a href="mailto:maccake21@gmail.com">maccake21@gmail.com</a>.
             </p>

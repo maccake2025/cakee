@@ -1,0 +1,114 @@
+/* =============================
+   PÁGINA DE CONTATO
+   ============================= */
+.contact-page {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: var(--space-xl) 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    background-color: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-lg);
+}
+
+.contact-info h1 {
+    color: var(--primary-color);
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--space-md);
+    position: relative;
+}
+
+.contact-info h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.contact-info #massa {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-lg);
+    color: var(--dark-light);
+    line-height: 1.6;
+}
+
+.contact-details {
+    margin-top: var(--space-lg);
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-lg);
+    color: var(--dark-color);
+}
+
+.contact-details i {
+    color: var(--primary-color);
+    width: 24px;
+    text-align: center;
+    font-size: var(--font-size-xl);
+}
+
+.contact-form-section {
+    background-color: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-form-section h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.google-form-container {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Responsividade */
+@media (min-width: 992px) {
+    .contact-page {
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--space-xxl);
+        padding: var(--space-xxl) var(--space-md);
+    }
+    
+    .contact-info {
+        margin-bottom: 0;
+        align-self: start;
+        position: sticky;
+        top: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .contact-info #massa,
+    .contact-details li {
+        font-size: var(--font-size-md);
+    }
+    
+    .contact-details i {
+        font-size: var(--font-size-lg);
+    }
+}

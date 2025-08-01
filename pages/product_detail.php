@@ -62,7 +62,7 @@ if (!$product_not_found && !empty($product['imagens_adicionais'])) {
                         $main_image_path = '../assets/images/uploads/products/' . htmlspecialchars($product['imagem_principal']);
                         $default_image = '../assets/images/default-product.jpg';
                         ?>
-                        <img src="<?= file_exists($main_image_path) ? $main_image_path : $default_image ?>" 
+                        <img src="<?= (is_file($main_image_path) && filesize($main_image_path) > 0) ? $main_image_path : $default_image ?>" 
                              alt="<?= htmlspecialchars($product['nome']) ?>"
                              onerror="this.src='<?= $default_image ?>'">
                     </div>
@@ -221,7 +221,50 @@ if (!$product_not_found && !empty($product['imagens_adicionais'])) {
             }
         }
     }
-    document.addEventListener('DOMContentLoaded', updateReviews);
+
+    // Adicionar ao carrinho (AJAX)
+    document.addEventListener('DOMContentLoaded', function() {
+        updateReviews();
+
+        var addBtn = document.querySelector('.add-to-cart-btn');
+        if (addBtn) {
+            addBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var btn = this;
+                btn.disabled = true;
+                var original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adicionando...';
+
+                fetch('../includes/add_to_cart.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'product_id=<?= $product_id ?>&quantity=1'
+                })
+                .then(res => res.json())
+                .then(data => {
+                    btn.innerHTML = original;
+                    btn.disabled = false;
+                    if (data.success) {
+                        // Atualiza contador do carrinho, se existir
+                        var cartCount = document.getElementById('cart-count');
+                        if (cartCount && data.cart_count !== undefined) {
+                            cartCount.textContent = data.cart_count;
+                            cartCount.classList.add('pulse');
+                            setTimeout(() => cartCount.classList.remove('pulse'), 600);
+                        }
+                        alert('Produto adicionado ao carrinho!');
+                    } else {
+                        alert(data.message || 'Erro ao adicionar ao carrinho.');
+                    }
+                })
+                .catch(() => {
+                    btn.innerHTML = original;
+                    btn.disabled = false;
+                    alert('Erro ao conectar com o servidor.');
+                });
+            });
+        }
+    });
     </script>
 </body>
 </html>

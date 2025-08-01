@@ -30,18 +30,18 @@ CREATE TABLE produtos (
     slug VARCHAR(100) NOT NULL UNIQUE,
     descricao TEXT,
     preco DECIMAL(10,2) NOT NULL,
-    preco_promocional DECIMAL(10,2),
+    preco_promocional DECIMAL(10,2) DEFAULT NULL,
     categoria VARCHAR(50),
     imagem_principal VARCHAR(255) NOT NULL,
-    imagens_adicionais JSON,
+    imagens_adicionais JSON DEFAULT NULL,
     estoque INT DEFAULT 0,
     ingredientes TEXT,
     peso DECIMAL(10,2) COMMENT 'em gramas',
     tempo_preparo INT COMMENT 'em minutos',
-    destaque BOOLEAN DEFAULT FALSE,
+    destaque TINYINT(1) DEFAULT 0,
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    data_atualizacao DATETIME ON UPDATE CURRENT_TIMESTAMP,
-    ativo BOOLEAN DEFAULT TRUE,
+    data_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ativo TINYINT(1) DEFAULT 1,
     FOREIGN KEY (vendedor_id) REFERENCES usuarios(id) ON DELETE CASCADE,
     INDEX idx_vendedor (vendedor_id),
     INDEX idx_categoria (categoria),
@@ -49,7 +49,6 @@ CREATE TABLE produtos (
     INDEX idx_preco (preco),
     FULLTEXT INDEX ft_nome_descricao (nome, descricao)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 -- Tabela de pedidos (referencia usuarios)
 CREATE TABLE pedidos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -209,15 +208,19 @@ INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos
 ('PRIMEIRACOMPRA', 15.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
 
 INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
-('JOÂO-TEIXEIRA-GOSTOSO', 25.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
-
-
-INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
-('ALIHABAO', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+('CAKEMVP', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
 
 INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
-('BOMBASGAY', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+('ALI', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
 
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('JOAO-PEDRO', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('DANILO', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
+
+INSERT INTO cupons (codigo, desconto, tipo_desconto, data_validade, usos_maximos, valor_minimo) VALUES
+('KAYQUE', 99.00, 'percentual', DATE_ADD(NOW(), INTERVAL 30 DAY), 100, 50.00);
 -- Criar triggers
 
 -- Atualizar data de atualização do produto

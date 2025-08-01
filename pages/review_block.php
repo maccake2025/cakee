@@ -15,7 +15,7 @@ $conn = $db->connect();
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-// Você pode receber $product_id como variável já existente ou via GET/POST
+// $product_id pode vir como variável de fora, ou via GET/POST
 if (!isset($product_id)) {
     $product_id = isset($_GET['product_id']) ? (int)$_GET['product_id'] : 0;
 }

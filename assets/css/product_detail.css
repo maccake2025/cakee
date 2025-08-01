@@ -465,7 +465,7 @@
 .review-rating {
     margin-left: 10px;
     font-size: 1.1em;
-    color: var(--warning-color, #ffc107);
+    color: #5f6363de;
 }
 .review-rating .fa-star.filled {
     color: #ffd200;
