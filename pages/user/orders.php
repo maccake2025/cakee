@@ -74,7 +74,7 @@ try {
 
         <?php if (empty($orders)): ?>
             <div class="no-orders">
-                <img src="../../assets/images/orders-empty.svg" alt="Sem pedidos">
+                <img src="../../assets/images/orders-empty.png" alt="Sem pedidos">
                 <p>Você ainda não fez nenhum pedido.</p>
                 <a href="/pages/products.php" class="btn btn-primary">
                     <i class="fas fa-shopping-basket"></i> Ver produtos
@@ -132,5 +132,6 @@ try {
     </main>
 
     <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>

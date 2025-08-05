@@ -217,10 +217,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar'])) {
             <div class="form-group">
                 <label for="metodo_pagamento">Método de pagamento</label>
                 <select id="metodo_pagamento" name="metodo_pagamento" required>
-                    <option value="">Selecione...</option>
-                    <option value="cartao">Cartão de crédito</option>
-                    <option value="pix">Pix</option>
-                    <option value="boleto">Boleto</option>
                     <option value="dinheiro">Dinheiro na entrega</option>
                 </select>
             </div>
@@ -239,5 +235,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['finalizar'])) {
     <?php endif; ?>
 </div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>

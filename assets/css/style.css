@@ -532,7 +532,7 @@ header {
    HERO SECTION
    ============================= */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.png') no-repeat center center/cover;
     height: 80vh;
     display: flex;
     align-items: center;

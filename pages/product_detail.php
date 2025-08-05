@@ -151,7 +151,7 @@ if (!$product_not_found && !empty($product['imagens_adicionais'])) {
         <?php endif; ?>
     </main>
     <?php require_once __DIR__ . '/../includes/footer.php'; ?>
-
+        <script src="../assets/js/main.js"></script>
     <script>
     // AJAX para avaliações
     function updateReviews() {

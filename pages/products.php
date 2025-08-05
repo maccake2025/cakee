@@ -242,6 +242,8 @@ try {
 
     <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 
+    <script src="../assets/js/main.js"></script>
+
     <script>
         // Adicionar ao carrinho via AJAX
         document.querySelectorAll('.add-to-cart').forEach(button => {

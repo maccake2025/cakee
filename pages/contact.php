@@ -49,7 +49,7 @@ $page_title = "Contato";
             </div>
         </section>
     </main>
-
+    <script src="../assets/js/main.js"></script>
     <?php require_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

@@ -22,7 +22,7 @@ Cada bolo disponível em nossa plataforma é feito com ingredientes selecionados
 Na Mac Cake, acreditamos no poder da comida como uma forma de celebração e conexão. Ao comprar conosco, você não está apenas saboreando uma delícia, mas também incentivando a sustentabilidade e o crescimento do comércio local. É mais do que uma simples compra; é um gesto de apoio e valorização daquilo que é feito com dedicação, amor e criatividade. Venha descobrir o verdadeiro sabor da qualidade e da tradição artesanal.
 </p>
 
-
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

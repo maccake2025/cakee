@@ -181,5 +181,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['change_password'])) {
     </div>
 </div>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
+<script src="../../assets/js/main.js"></script>
 </body>
 </html>

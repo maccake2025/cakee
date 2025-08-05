@@ -181,6 +181,7 @@ $favorites = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
 <!-- FontAwesome -->
+<script src="../../assets/js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>

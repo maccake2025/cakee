@@ -383,6 +383,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if(form.style.display === 'block') form.scrollIntoView({behavior: "smooth"});
     });
 </script>
+    <script src="../../assets/js/main.js"></script>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
 </body>
 </html>

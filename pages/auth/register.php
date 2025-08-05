@@ -132,5 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <p>Já tem uma conta? <a href="/pages/auth/login.php">Faça login</a></p>
     </div>
+    
 </body>
 </html>

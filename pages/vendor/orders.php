@@ -148,6 +148,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <?php endif; ?>
     </main>
 </div>
+<script src="../../assets/js/main.js"></script>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
 </body>
 </html>

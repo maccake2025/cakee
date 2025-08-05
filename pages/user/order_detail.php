@@ -219,5 +219,6 @@ if (!$pedido) {
     <?php endif; ?>
 </div>
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+<script src="../../assets/js/main.js"></script>
 </body>
 </html>
