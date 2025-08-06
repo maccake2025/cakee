@@ -102,8 +102,10 @@ if (isset($_GET['success'])) {
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-brand">
-                <img src="../../assets/images/logo.png" alt="Cakee Market" class="auth-logo">
-                <h1>Cakee Market</h1>
+                <a href="../../index.php">
+                <img src="../../assets/images/logo/logo.png" alt="Cakee Market" class="auth-logo">
+                </a>
+                <h1>Mac Cake</h1>
             </div>
             
             <?php if ($success): ?>
@@ -161,7 +163,7 @@ if (isset($_GET['success'])) {
             </form>
             
             <div class="auth-footer">
-                <p>Ao continuar, você concorda com nossos <a href="/melhorcakee/pages/terms.php">Termos de Serviço</a> e <a href="/melhorcakee/pages/privacy.php">Política de Privacidade</a>.</p>
+                <p>Ao continuar, você concorda com nossos Termos de Serviço e Política de Privacidade.</p>
             </div>
         </div>
     </div>

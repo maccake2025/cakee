@@ -190,6 +190,12 @@
     box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
+.auth-logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Link para Login */
 .auth-container p {
     text-align: center;

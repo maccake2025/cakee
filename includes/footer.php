@@ -8,7 +8,7 @@
                 <div class="social-links">
                     <a href="https://www.facebook.com/share/15rMVmc6te/" aria-label="Facebook" target="_blank">
                     <i class="fab fa-facebook-f"></i>
-                    <a href="https://www.instagram.com/mac.cake?igsh=MXNrZWgxbGRrNHIrzg==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://github.com/maccake2025/" aria-label="GitHub" target="_blank">
                     <i class="fab fa-github"></i></a>
